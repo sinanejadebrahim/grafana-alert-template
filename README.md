@@ -10,9 +10,22 @@ just make 2 templates for slack and telegram in your grafana with these and you 
 - **Slack, Mattermost, Rocket Chat Integration**: Connect with your favorite messaging platforms and receive alerts directly to your team's channels. Stay informed and take swift action!
 - **Telegram Integration**: Join the Telegram revolution and receive alerts in style. It's time to level up your alert game and impress your peers!
 
+
+### How to Use:
+there are images here which show how the alerts look if setup correctly.
+
+you should use ( Reduce + Treshold ) for you alerts, then in each alert in setting number 4 which is ( Add details for your alert rule) add a new annotation named summary, and that will be sent with your alert.
+
+this is a sample text you coulde use: `instance={{ index $labels "instance" }} value={{ index $values "B" }}`
+
 ### Alert Templates
-                                                 👇🏼 Slack - RocketChat - MatterMost 👇🏼
-<image src=slack-1.png><image src=slack-2.png><image src=slack-3.png>
+                                            👇🏼 Slack - RocketChat - MatterMost 👇🏼
+<div align="center">
+    <img src="slack1.png"  >
+    <img src="slack2.png"  >
+    <img src="slack3.png"  >
+</div>
+
 ```
 {{ define "slack_title" }}
 {{ if gt (len .Alerts.Firing) 0 }}🔥 {{ len .Alerts.Firing }} alert(s) firing {{ end }}
@@ -35,8 +48,12 @@ just make 2 templates for slack and telegram in your grafana with these and you 
 <{{ .PanelURL }}|Go to Dashboard>
 {{ end }}
 ```
-                                                          👇🏼 Telegram 👇🏼
-<image src=telegram1.png><image src=telegram2.png><image src=telegram3.png>
+                                                     👇🏼 Telegram 👇🏼
+<div align="center">
+    <img src="telegram1.png"  >
+    <img src="telegram2.png"  >
+    <img src="telegram3.png"  >
+</div>
 
 ```
 {{ define "telegram_message" }}
